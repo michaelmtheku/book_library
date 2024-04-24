@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Mini Library</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!--stylesheets-->
+	<link href="reset.css" rel="stylesheet" />
+	<link href="style.css" rel="stylesheet" />
+	<!--google fonts-->
+	<link href="https://fonts.googleapis.com/css2?family=Piazzolla:ital,wght@0,400;1,100&display=swap" rel="stylesheet"> 
+</head>
+<body>
+	<header>
+		<h1>My Mini Library</h1>
+	</header>
+
+	<div id="library">
+		<div id="library-header">
+			<div>Title</div>
+			<div>Author</div>
+			<div>Page Count</div>
+			<div>Read?</div>
+			<div>Remove</div>
+		</div>	
+		<div id="library-list"></div>
+	</div>
+	<button id="add-book" onclick="showModal()">
+		<svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+	</button>
+	<div id="form-modal" class="hide">
+		<form id="new-book-form">
+			<div class="close" onclick="hideModal()">
+				<svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+			</div>
+			<h2>Add a New Book</h2>
+			<label for="form-title">Book Title</label>
+			<input type="text" id="form-title" name="form-title" placeholder="Book Title" required />
+			<label for="form-author">Book Author</label>
+			<input type="text" id="form-author" name="form-author" placeholder="Book Author" required />
+			<label for="form-pages">Page Count</label>
+			<input type="number" id="form-pages" name="form-pages" placeholder="Page Count" required />
+			<label for="form-read">Read?</label>
+			<input type="checkbox" id="form-read" name="form-read" value="" />
+			<button type="button" onclick="addBookToLibrary()">Add Book</button>
+		</form>
+	</div>
+
+</body>
+<script src="java.js"></script>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyBTGIlzPL25l0RNMfby3KR4TKVGScoS214",
+    authDomain: "library-bd97d.firebaseapp.com",
+    databaseURL: "https://library-bd97d.firebaseio.com",
+    projectId: "library-bd97d",
+    storageBucket: "library-bd97d.appspot.com",
+    messagingSenderId: "935217710056",
+    appId: "1:935217710056:web:7cde761b7b2ba98c6f5a5d",
+    measurementId: "G-F6M7E4T0KS"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+</html>
